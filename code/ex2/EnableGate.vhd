@@ -3,11 +3,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.all;
 
 entity EnableGate is
-    Port ( 
-		x 	: in  STD_LOGIC_VECTOR (3 downto 0);
-      en : in  STD_LOGIC;
-      y 	: out  STD_LOGIC_VECTOR (3 downto 0)
-		);
+    Port ( 	x 	: in  STD_LOGIC_VECTOR (3 downto 0);
+      		en 	: in  STD_LOGIC;
+      		y 	: out  STD_LOGIC_VECTOR (3 downto 0)
+			);
 end EnableGate;
 
 -- concurrent signal assignment
