@@ -1,0 +1,170 @@
+--*******************************************************
+--Musterlösusng Markus 
+-------------------------------------------------------------------------------
+-- Entity: reak_test_rand_fsm
+-- Author: ThM
+-- Date  : see Filename
+-------------------------------------------------------------------------------
+-- Description: (ECS Uebung 5)
+-- Reaktionstester mit FSM
+-------------------------------------------------------------------------------
+-- ATTENTION: 2 FF wo reset in P_rst_del, reset length used to generate random
+-- 
+-------------------------------------------------------------------------------
+-- Total # of FFs: 38
+-------------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity reak_test is
+  generic(
+    CLK_FRQ : integer := 50_000_000 -- 50 MHz = 0x2FAF080 (26 bits)
+    );
+  port(
+    BTN_SOUTH   : in  std_logic; -- BTN_SOUTH für Reset
+    clk   	: in  std_logic;
+    ROT_C	: in  std_logic;
+    LED  	: out std_logic_vector(7 downto 0)
+    );
+end reak_test;
+
+architecture A_reak_test of reak_test is
+
+  -- constants
+  constant WAIT_PRD : integer := 2;		-- wait period in seconds
+  constant MAX_CNT : unsigned(26 downto 0):= to_unsigned(CLK_FRQ*WAIT_PRD-1,27);	-- to_unsigned(,27 bit)
+ -- signals
+  signal rst_gen	: std_logic_vector(1 downto 0);
+  signal rst		: std_logic;	--reset
+  signal btn_s_meta	: std_logic_vector(2 downto 0);
+  signal rot_c_meta	: std_logic_vector(1 downto 0);
+  signal LED_I	  	: std_logic_vector(7 downto 0);
+  signal del_done	: std_logic; 	-- enable type
+  signal cnt_stop	: std_logic; 	-- enable type
+  signal cnt 		: unsigned(26 downto 0);
+
+  type state is (reset, random_w, meas_t, show, early, late);	-- 6 FSM states
+  signal fsm_cr_st, fsm_nx_st : state;
+
+begin
+ 
+ -- reset generator
+ -- FF 
+ P_rst_del: process(clk)
+  begin
+    if rising_edge(clk) then	-- reset lenght 1-2 Clk cylces
+     rst_gen(0) <= BTN_SOUTH;	-- FF without Reset :-(
+     rst_gen(1) <= rst_gen(0);	-- FF without Reset :-(
+    end if; --clk
+  end process;
+  rst <= '1' when (BTN_SOUTH = '1' and rst_gen(1) = '0') else '0';	-- rising edge = BTN_SOUTH pressed
+  
+ -- metastability filter BTN_SOUTH
+ -- FF
+ P_rst_meta: process(rst, clk)
+  begin
+    if rst = '1' then
+	   btn_s_meta <= (others => '0');
+    elsif rising_edge(clk) then
+      btn_s_meta(0) <= BTN_SOUTH;		-- metastability filter
+	  btn_s_meta(1) <= btn_s_meta(0);	-- metastability filter
+	  btn_s_meta(2) <= btn_s_meta(1);	-- 3. FF for edge detector in cnt process
+    end if; -- clk
+  end process;
+   
+ -- metastability filter ROT_C
+ -- FF
+ P_rot_c_meta: process(rst, clk)
+  begin
+    if rst = '1' then
+	   rot_c_meta <= (others => '0');
+    elsif rising_edge(clk) then
+      rot_c_meta(0) <= ROT_C;		-- metastability filter
+	  rot_c_meta(1) <= rot_c_meta(0);	-- metastability filter
+    end if; -- clk
+  end process;
+ 
+-- FSM sequential process
+-- FF
+p_fsm_seq: process(rst, clk)
+  begin
+    if rst = '1' then
+      fsm_cr_st <= reset;
+   elsif rising_edge(clk) then
+      fsm_cr_st <= fsm_nx_st;
+   end if;
+end process;
+
+-- FSM combinatorial process
+-- FF
+p_fsm_com: process (fsm_cr_st, btn_s_meta(1), LED_I, cnt, del_done, rot_c_meta(1))	--all read signals!
+begin
+   -- default assignments
+   fsm_nx_st <= fsm_cr_st;		-- remain in current state
+   LED_I <= "00000000";			-- most frequent value, 8FF
+   cnt_stop <= '0';
+   case fsm_cr_st is
+      when reset =>
+        if btn_s_meta(1) = '0' then		-- button south released?
+		   fsm_nx_st <= random_w;
+		end if;	  
+		LED_I <=  "00000000";			
+      when random_w  =>
+		if rot_c_meta(1) = '1' then		-- too early
+		  fsm_nx_st <= early;
+		elsif del_done = '1' then		-- go on
+		  fsm_nx_st <= meas_t;
+		end if;
+		LED_I <= "00000000"; 			-- not necessary but instructive
+	  when meas_t  =>
+		if rot_c_meta(1) = '1' then		-- button pressed?
+		  fsm_nx_st <= show;
+		elsif del_done = '1' then		-- too late
+		  fsm_nx_st <= late;
+		end if;	  	  
+	    LED_I <= "10000000";
+      when show =>
+	    LED_I <= std_logic_vector(cnt(26 downto 19)); --500k=1/100=0x7A10, 7FFFF=524k
+		cnt_stop <= '1';
+      when early =>
+	    for i in 0 to 7 loop
+	      LED_I(i) <=  cnt(23);			-- too early
+		end loop;
+      when late =>
+	    LED_I <= "11111111";
+      when others =>
+         fsm_nx_st <= reset;			-- handle parasitic states
+   end case;
+end process;
+
+ -- sequential process: Delay Counter
+ -- FF
+  P_del_cnt: process(rst, clk)
+  begin
+    if rst = '1' then
+	  cnt <= (others => '0');
+      del_done <= '0';
+    elsif rising_edge(clk) then
+   
+      if btn_s_meta(2) = '1' and btn_s_meta(1)='0' then -- falling edge = BTN_SOUTH release
+		  cnt(26) <= '0';								-- between 1.1 and 2.3 sec to count to FFFF
+		  cnt(25 downto 15) <= cnt(25 downto 15) xor cnt(10 downto 0);	--for better randomness 
+	  else
+	    if cnt_stop='0' then	
+	      if cnt < MAX_CNT then	
+            cnt <= cnt + 1;			-- 27 FF = ~2.3sec
+	        del_done <= '0';		-- 1 FF
+          else
+           cnt <= (others => '0');
+           del_done <= '1';
+          end if; --cnt
+        end if; --cnt_stop
+      end if; --btn_s_meta(2)='1'
+	  
+    end if; --clk
+  end process;
+   
+  LED <= LED_I;
+end A_reak_test;
+--*******************************************************

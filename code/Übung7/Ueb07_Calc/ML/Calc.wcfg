@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/__waj__/ECS_FS12/work_ISE/ueb7_calc/Tb_Calc_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="tb_calc" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="22" />
+   <wave_markers>
+      <marker time="20510541475000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/tb_calc/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#0000ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider13" type="divider">
+      <obj_property name="label">Inputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#c0c0c0</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/rot_c" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rot_c</obj_property>
+      <obj_property name="ObjectShortName">rot_c</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/btn_east" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">btn_east</obj_property>
+      <obj_property name="ObjectShortName">btn_east</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/btn_west" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">btn_west</obj_property>
+      <obj_property name="ObjectShortName">btn_west</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/btn_north" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">btn_north</obj_property>
+      <obj_property name="ObjectShortName">btn_north</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/sw" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sw[3:0]</obj_property>
+      <obj_property name="ObjectShortName">sw[3:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffa500</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider14" type="divider">
+      <obj_property name="label">Outputs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#c0c0c0</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/led" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">led[7:0]</obj_property>
+      <obj_property name="ObjectShortName">led[7:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider15" type="divider">
+      <obj_property name="label">Internals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#c0c0c0</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/Ctrl_1/rot_c_deb" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rot_c_deb</obj_property>
+      <obj_property name="ObjectShortName">rot_c_deb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/Ctrl_1/blank_cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">blank_cnt[23:0]</obj_property>
+      <obj_property name="ObjectShortName">blank_cnt[23:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/Ctrl_1/blank_tme" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">blank_tme[23:0]</obj_property>
+      <obj_property name="ObjectShortName">blank_tme[23:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/Ctrl_1/c_st" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">c_st</obj_property>
+      <obj_property name="ObjectShortName">c_st</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/Ctrl_1/op1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">op1</obj_property>
+      <obj_property name="ObjectShortName">op1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/Ctrl_1/op2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">op2</obj_property>
+      <obj_property name="ObjectShortName">op2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/Proc_1/reg1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">reg1[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffa500</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/Proc_1/reg2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">reg2[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffa500</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/Ctrl_1/plus" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">plus</obj_property>
+      <obj_property name="ObjectShortName">plus</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/Ctrl_1/minus" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">minus</obj_property>
+      <obj_property name="ObjectShortName">minus</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_calc/MUT/mult" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mult</obj_property>
+      <obj_property name="ObjectShortName">mult</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,47 @@
+--Übung 2
+--ParityGenerator
+----------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.all;
+
+entity ParityGenerator is
+    port ( 
+	data 	: in  STD_LOGIC_VECTOR (3 downto 0);
+        parity 	: out  STD_LOGIC
+	);
+end ParityGenerator;
+
+---------------------------------------------------------------
+
+architecture A1 of ParityGenerator is
+begin 
+	process(data)
+		variable onesCount : integer range 0 to data'length;
+		begin
+		onesCount := 0;
+			for i in 0 to data'length-1 loop
+				if data(i) = '1' then
+					onesCount := onesCount +1;
+				end if;
+			end loop;
+	end process;
+end A1;
+
+-----------------------------------------------------------------
+
+architecture A2 of ParityGenerator is
+begin
+	process(data)
+	variable v_odd_parity : std_logic;
+	begin
+	v_odd_parity := '1';
+		for i in 0 to data'length-1 loop
+			if data(i) = '1' then
+				v_odd_parity := not v_odd_parity;	
+			end if;
+		end loop;
+		parity <= v_odd_parity;
+	end process;
+end A2;
+--*****************************************************************
