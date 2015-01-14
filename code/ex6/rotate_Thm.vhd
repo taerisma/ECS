@@ -88,7 +88,7 @@ p_meta_filter: process (rst, clk)
 end process;
 
 -- FSM sequential process
---FF=2+8=10= 2 für den Zustand der FSM und 8 für die LED Zuweisung
+--FF=2+8=10     2FF für den Zustand der FSM und 8 für die LED Zuweisung
 p_fsm_seq: process(rst, clk)
   begin
     if rst = '1' then

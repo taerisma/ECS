@@ -115,16 +115,14 @@ begin
 		  fsm_nx_st <= active_st;
 		 if dim_val > 0 then			-- test for min
 		   dim_v_nx <= dim_val - 1;		-- less bright
-		 end if;
-		  
-		end if;	  
-	  
+		 end if;	  
+		end if;	  	  
       when others =>
          fsm_nx_st <= active_st;		-- handle parasitic states
    end case;
 end process;
 
---	PWM Ramp Cnt			16FF
+--	PWM Ramp Cnt macht 16FF
 p_ramp_cnt: process (rst, clk)
   begin
   if rst = '1' then
@@ -137,5 +135,3 @@ end process;
 LED(7 downto 4) <= std_logic_vector(ramp_cnt(15 downto 12));
 LED(3 downto 0) <= "1111" when ramp_cnt(15 downto 11) > dim_val else "0000";
 end A_dimm;
---***********************************************************************
-

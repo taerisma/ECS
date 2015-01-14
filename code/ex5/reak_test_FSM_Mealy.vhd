@@ -60,10 +60,8 @@ architecture rtl of reak_test_rand_fsm is
   signal rnd_cnt   : unsigned(25 downto 0) := to_unsigned(CLK_FRQ/2-1,26);
 
 begin
-  
   -- output assignment
   LED <= led_out;
-
   -----------------------------------------------------------------------------
   -- sequential process: Common and random Counter
   -- # of FFs: 26 + 26 + 26 + + 8 + 1 + 1 = 88
@@ -138,7 +136,7 @@ begin
   p_fsm_com: process (c_st, cnt_done, ROT_C, time_out)
   begin
     -- default assignments
-    n_st <= c_st; -- remain in current state
+    n_st 		<= c_st; -- remain in current state
     meas_done  <= '0'; 
     start_rnd  <= '0'; 
     start_meas <= '0'; 

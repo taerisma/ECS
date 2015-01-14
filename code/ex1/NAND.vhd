@@ -1,7 +1,7 @@
 --**********************************
 --NAND
---kombination von Inverter und AND
---achtung am Ende der Port kein ;
+--Kombination von Inverter und AND
+--Achtung am Ende der Port kein ;
 --port map nur mit , abtrennen
 --**********************************
 library IEEE;
@@ -22,7 +22,7 @@ architecture Behavioral of MyNand is
 	end component MyAnd;	
 --achtung am Ende der Port kein ;	
 	component MyInv is
-		port( x: in std_logic;
+		port( 	x: in std_logic;
 				y: out std_logic);
 	end component MyInv;
 --achtung am Ende der Port kein ;	
@@ -30,12 +30,11 @@ signal temp : std_logic;
 begin
 	and1:MyAnd
 		port map(	x => a,
-						y => b,
-						z => temp);
+					y => b,
+					z => temp);
 --achtung am Ende der Port kein ;
 	inv1: MyInv
 		port map(	x => temp,
-						y => c);
+					y => c);
 --achtung am Ende der Port kein ;
 end Behavioral;
---**********************************

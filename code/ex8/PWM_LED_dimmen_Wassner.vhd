@@ -32,7 +32,6 @@ architecture A of pwm_led is
   constant STP    : integer := 2**N/S; -- uses truncation!
   
 begin
-
   -----------------------------------------------------------------------------
   -- sequential process: Synchronization of ROT_A/B
   -- # of FFs: 4
@@ -120,6 +119,5 @@ begin
         led <= (others => '1');
       end if;
     end if;
-  end process;
-  
+  end process; 
 end A;

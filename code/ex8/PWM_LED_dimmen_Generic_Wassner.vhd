@@ -1,8 +1,8 @@
---**************************************************
 --Übung 8
 --PWM LED dimmen
 --generic
 --alt von Wassner
+--**************************************************
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -36,7 +36,6 @@ architecture A of pwm_led is
   constant STP    : integer := 2**RES/BRL;
   
 begin
-
   -----------------------------------------------------------------------------
   -- sequential process: Synchronization of ROT_A/B
   -- # of FFs: 4
@@ -127,4 +126,3 @@ begin
   end process;
   
 end A;
---**************************************************

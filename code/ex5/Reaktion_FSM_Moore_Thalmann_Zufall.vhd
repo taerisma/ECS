@@ -6,10 +6,7 @@
 -- Description: (ECS Uebung 4, Aufgabe 2)
 -- Random = länge des BTN_SOUTH = 1, wird auch für Reset verwendet
 -- 
--- 
--- 
--- 
--- 
+
 -------------------------------------------------------------------------------
 -- Total # of FFs: 42
 -------------------------------------------------------------------------------
@@ -51,8 +48,8 @@ begin
  P_rst_del: process(clk)
   begin
     if rising_edge(clk) then	-- reset lenght 1-2 Clk cylces
-     rst_gen(0) <= BTN_SOUTH;	-- FF without Reset :-(
-     rst_gen(1) <= rst_gen(0);	-- FF without Reset :-(
+     rst_gen(0) <= BTN_SOUTH;	-- FF without Reset :-( eigentlich machen wir nur FF mit rst
+     rst_gen(1) <= rst_gen(0);	-- FF without Reset :-( eigentlich machen wir nur FF mit rst
     end if; --clk
   end process;
   rst <= '1' when (BTN_SOUTH = '1' and rst_gen(1) = '0') else '0';	-- pulse, rising edge = BTN_SOUTH pressed
@@ -145,4 +142,3 @@ begin
   
   LED <= LED_I;
 end A_reak_test;
-

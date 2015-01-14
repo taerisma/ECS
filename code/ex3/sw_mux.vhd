@@ -1,6 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+--********************************************
 
 entity sw_mux is
   port(
@@ -26,4 +27,3 @@ begin
               BTN_WEST  when "11",
               '0'       when others;
 end A;
-

@@ -1,18 +1,17 @@
 -- Bei einer geraden Anzahl von 1 in dem vier Bit data Vektor
 -- wird das Parrity Bit 1
 -- bei einer ungeraden Anzahl ist das Parrity Bit 0
+--**************************************************************
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.all;
 
 entity ParityGenerator is
-    port ( 
-			data 		: in  STD_LOGIC_VECTOR (3 downto 0);
-         parity 	: out  STD_LOGIC
-			);
+    port ( 	data 	: in  STD_LOGIC_VECTOR (3 downto 0);
+			parity 	: out  STD_LOGIC
+		);
 end ParityGenerator;
 --!!achtung die letzte Anweisung der port hat kein ;
-
 ---------------------------------------------------------------
 architecture A1 of ParityGenerator is
 begin 

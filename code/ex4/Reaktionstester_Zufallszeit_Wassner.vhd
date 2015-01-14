@@ -1,7 +1,7 @@
 --Übung 4
 --Reaktionstester mit einer Zufallszeit
 --Wassner
---
+--********************************************************************
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.all;
@@ -12,11 +12,10 @@ entity reak_test_rand is
            clk : in  STD_LOGIC;
            rot_c : in  STD_LOGIC;
            led : out  STD_LOGIC_VECTOR (7 downto 0)
-			  );
+		);
 end reak_test_rand;
 
 architecture Behavioral of reak_test_rand is
-  -- constants
   -- 1 sec = 1 * CLK_FRQ -1
   constant FIX_TME : unsigned(25 downto 0) := to_unsigned(CLK_FRQ-1,26); 
   -- 1/100 sec = CLK_FRQ / 100 
@@ -25,6 +24,7 @@ architecture Behavioral of reak_test_rand is
   constant INT_TME : unsigned(18 downto 0) := to_unsigned(CLK_FRQ/200-1,19); 
   -- 1/8 sec = CLK_FRQ / 8 
   constant BLK_TME : unsigned(22 downto 0) := to_unsigned(CLK_FRQ/8-1,23); 
+  
   -- signals
   signal del_done  : std_logic;              -- state type control signal 
   signal meas_done : std_logic;              -- state type control signal
@@ -143,4 +143,3 @@ begin
     end if;
   end process;
 end Behavioral;
---***************************************************************

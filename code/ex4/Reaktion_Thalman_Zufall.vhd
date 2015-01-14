@@ -7,10 +7,7 @@
 -- Random = länge des BTN_SOUTH = 1, wird auch für Reset verwendet
 -- 
 -- 
--- 
--- 
--- 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------
 -- Total # of FFs: 42
 -------------------------------------------------------------------------------
 library ieee;
@@ -31,21 +28,21 @@ end reak_test;
 
 architecture A_reak_test of reak_test is
 
-  -- constants
   constant WAIT_PRD : integer := 2;		-- wait period in seconds
   constant MAX_CNT : unsigned(26 downto 0):= to_unsigned(CLK_FRQ*WAIT_PRD-1,27);	-- to_unsigned(,27 bit)
- -- signals
+
+  -- signals
   signal rst		: std_logic;	--reset
   signal LED_I	  	: std_logic_vector(7 downto 0);
   signal del_done	: std_logic; 	-- enable type
   signal meas_done	: std_logic; 	-- enable type
- -- signal meas_time	: std_logic_vector(7 downto 0);
+
+  -- signal meas_time	: std_logic_vector(7 downto 0);
   signal cnt 		: unsigned(26 downto 0);
   signal rst_meta	: std_logic_vector(2 downto 0);
   signal rst_gen	: std_logic_vector(1 downto 0);
 
 begin
- 
  -- reset generator
  -- 2 FF
  P_rst_del: process(clk)
@@ -138,8 +135,7 @@ begin
 		LED_I(2) <=  not cnt(23);
 		LED_I(1) <=  cnt(23);
 		LED_I(0) <=  not cnt(23);	    
-	  end if; -- meas_done
-	  
+	  end if; -- meas_done	  
     end if; -- clk
   end process;
   

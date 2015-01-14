@@ -8,18 +8,18 @@ use ieee.numeric_std.all;
 entity reak_test_random_fsm_mealy is
 	generic(
 			CLK_FRQ : integer :=50_000_000
-				);
-    Port ( rot_c : in  STD_LOGIC;
-           rst : in  STD_LOGIC;
-           clk : in  STD_LOGIC;
-           led : out  STD_LOGIC_VECTOR (7 downto 0)
-			  );
+			);
+    Port ( rot_c 	: in  STD_LOGIC;
+           rst 		: in  STD_LOGIC;
+           clk 		: in  STD_LOGIC;
+           led 		: out  STD_LOGIC_VECTOR (7 downto 0)
+		 );
 end reak_test_random_fsm_mealy;
 
 architecture Behavioral of reak_test_random_fsm_mealy is
-constant FIX_Time 	: unsigned(25 downto 0) := to_unsigned(CLK_FRQ-1,26);
-constant hundertstel : unsigned(25 downto 0) := to_unsigned(CLK_FRQ/100-1,26); 
-constant sec_div_200 : unsigned(25 downto 0) := to_unsigned(CLK_FRQ/200-1,26); 
+constant FIX_Time 		: unsigned(25 downto 0) := to_unsigned(CLK_FRQ-1,26);
+constant hundertstel 	: unsigned(25 downto 0) := to_unsigned(CLK_FRQ/100-1,26); 
+constant sec_div_200 	: unsigned(25 downto 0) := to_unsigned(CLK_FRQ/200-1,26); 
 constant BLANK_TIME 	: unsigned(25 downto 0) := to_unsigned(CLK_FRQ/8-1,26);
 
 type state is (start, warten, messen, fertig, cheat);
@@ -38,7 +38,7 @@ signal led_out : std_logic_vector(7 downto 0);
 
 signal zufalls_counter : unsigned(25 downto 0) := to_unsigned(CLK_FRQ/2-1,26);
 begin  
-	led <= led_out;
+	led <= led_out;		--Ausgangszuweisung
 	
 	--sequenzieller Prozess macht FF (88)
 	--26+26+8+1+1+26=88
@@ -46,12 +46,12 @@ begin
 	begin
 		if rst ='1' then
 			t_max <= FIX_Time;						--26FF
-			counter <= (others => '0');			--26FF
+			counter <= (others => '0');				--26FF
 			messung_zeit <= (others => '0');		--8FF
-			counter_done <= '0';						--1FF
-			time_out <= '0';							--1FF
+			counter_done <= '0';					--1FF
+			time_out <= '0';						--1FF
 		elsif rising_edge(clk) then
-			if zufalls_counter < FIX_TIME then	--26FF
+			if zufalls_counter < FIX_TIME then		--26FF
 				zufalls_counter <= zufalls_counter + 1;
 			else
 				zufalls_counter <= (others => '0');

@@ -1,10 +1,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+
+
 entity BarrelShifter is
     port ( 
 			dataIn 	: in  STD_LOGIC_VECTOR 	(7 downto 0);
-			dataOut 	: out  STD_LOGIC_VECTOR (7 downto 0);
+			dataOut : out  STD_LOGIC_VECTOR (7 downto 0);
 			shift 	: in  STD_LOGIC_VECTOR 	(3 downto 0)
 			  );
 end BarrelShifter;

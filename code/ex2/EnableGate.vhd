@@ -3,10 +3,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.all;
 
 entity EnableGate is
-    Port ( 	x 	: in  STD_LOGIC_VECTOR (3 downto 0);
-      		en 	: in  STD_LOGIC;
-      		y 	: out  STD_LOGIC_VECTOR (3 downto 0)
-			);
+    Port (	x 	: in  STD_LOGIC_VECTOR (3 downto 0);
+			en 	: in  STD_LOGIC;
+			y 	: out  STD_LOGIC_VECTOR (3 downto 0)
+		);--die letzte Anweisung der port brauch kein; erst nach der ( kommt ;
 end EnableGate;
 
 -- concurrent signal assignment
@@ -45,7 +45,7 @@ begin
 		end process;
 end process_concurent_signal_assigment3;
 
---eine Schlaufe
+--eine for Schlaufe
 architecture Process_for_loop of EnableGate is
 begin
 	process(x, en)
@@ -65,8 +65,7 @@ begin
 	y <= x 	when en = '1'				--keine Abtrennung
 				else (others => '0');
 end;
-
-
+--achtung keine Abtrennung der einzellen when Befehle!!!!!
 
 architecture process_conditional_sig_assigment of EnableGate is
 begin
@@ -75,11 +74,10 @@ begin
 			if en = '1' then			--kein ; kein,
 				y <= x;					--wichtig ;
 			else
-				y <= (others => '0');--wichtig ;
+				y <= (others => '0');	--wichtig ;
 			end if;						--wichtig ;
 		end process;					--wichtig ;
 end architecture;
-
 
 architecture process_mit_case of EnableGate is
 begin
@@ -99,6 +97,5 @@ architecture selected_sig_assigment of EnableGate is
 begin
 	with en select
 		y <= x when '1',								--die Zuweisungen mit , abtrennen
-				(others => '0') when others;		--erst am Ende kommt ein ;
+			(others => '0') when others;				--erst am Ende kommt ein ;
 end architecture selected_sig_assigment;
---------------------------------------------------------

@@ -2,6 +2,7 @@
 --Inverter
 --x ist ein Eingagn
 --y der invertierte Ausgang von x
+--*******************************
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -14,4 +15,3 @@ architecture Behavioral of MyInv is
 begin
 	y <= not x;
 end Behavioral;
---*******************************

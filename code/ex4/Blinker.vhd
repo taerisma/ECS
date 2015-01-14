@@ -1,6 +1,6 @@
 --Uebung4
 --Blinker
---
+--*****************************************************************************
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -13,12 +13,11 @@ entity Blinker is
     rst   : in  std_logic;
     clk   : in  std_logic;
     blink : out std_logic_vector(7 downto 0)	--Ausgangsvektor mit 8 Stellen 
-    );										--!!!!!! achtung Semikolon
+    );											--!!!!!! achtung Semikolon
 end Blinker;
 
 architecture A of Blinker is
 
-  -- constants
   constant BLK_PER : integer := 4; -- half of a blink period in fractions of sec
   constant MAX_CNT : unsigned(25 downto 0):= to_unsigned(CLK_FRQ/BLK_PER-1,26);
   -- signals
