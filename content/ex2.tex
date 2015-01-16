@@ -2,7 +2,7 @@
 \subsection{Auswahlschaltung EnabeGate}
 \lstinputlisting[ title=EnableGate]{code/ex2/EnableGate.vhd}
 \subsection{Auswahlschaltung mit Zuweisung}
-\subsubsection{Auswhal MEP}
+\subsubsection{Auswahl MEP}
 MEP bestimmt den Gefühlszustand.
 MEP kann F, E, D, C, B oder A sein
 
@@ -14,8 +14,8 @@ $\begin{aligned}[t]
 \end{aligned}$
 \lstinputlisting[ title=MEP]{code/ex2/AuswahlMEP.vhd}
 
-\subsubsection{Auswhal Ferien}
-Die Art der Ferien wird anhand der Jahrszeit oder Saison gewählt
+\subsubsection{Auswahl Ferien}
+Die Art der Ferien wird anhand der Jahreszeit oder Saison gewählt
  
 $\begin{aligned}[t]
     summer &= seaside \\
@@ -23,16 +23,19 @@ $\begin{aligned}[t]
     others &= none \\
 \end{aligned}$
 \lstinputlisting[ title=Ferien Auswahl]{code/ex2/AuswahlFerien.vhd}
-\subsubsection{Auswhal Wein}
+\subsubsection{Auswahl Wein}
 Es gibt viele Weine.
-Wein kann  red, with, rose, ... sein
+Wein kann  red, with, rose, ... sein\\
+\textbf{Achtung!} \verb?port? darf nicht verwendet werden. 
  
 \lstinputlisting[ title=Typ definiton]{code/ex2/AuswahlWein.vhd}
 \subsection{ParrityGenerator}
 \lstinputlisting[ title=ParrityGenerator]{code/ex2/ParrityGenerator.vhd}
 \subsection{Schieberegister}
-ein Bit Vektor wird auf den 8 LED(7 downto 0) ausgegeben. Über die vier Kippschalter sw(4 downto 0) kann ein drei Bit Wert übergeben werden. Das vierte Bit, ist das MSB, gibt das Vorzeichen vor.
-MSB = 0 ist positiv also nach rechts schieben
+Ein Bit Vektor wird auf den 8 LED(7 downto 0) ausgegeben. Über die vier 
+Kippschalter sw(4 downto 0) kann ein drei Bit Wert übergeben werden. Das 
+vierte Bit, ist das MSB, gibt das Vorzeichen vor. \\
+MSB = 0 ist positiv also nach rechts schieben \\
 MSB = 1 ist negativ also nach links schieben
 \lstinputlisting[ title=BarrelShifter]{code/ex2/BarrelShifter.vhd}
 \lstinputlisting[ title=BarrelShifter2]{code/ex2/BarrelShifter2.vhd}
