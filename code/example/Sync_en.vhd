@@ -10,6 +10,9 @@ entity sync_en is
 end sync_en;
 
 architecture enable of sync_en is
+
+signal inp_reg  : std_logic;
+
 begin
     process (clk)
     begin
