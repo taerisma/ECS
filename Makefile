@@ -10,6 +10,7 @@ clean:
 	rm -f *.bbl
 	rm -f *.blg
 	rm -f *.log
+	rm -g *.synctex.gz
 	rm -f *.out
 	rm -f *.toc
 	rm -f *.lot
