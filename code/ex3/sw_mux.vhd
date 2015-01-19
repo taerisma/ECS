@@ -10,8 +10,7 @@ entity sw_mux is
     BTN_SOUTH : in  std_logic;
     BTN_WEST  : in  std_logic;
     SW        : in  std_logic_vector(1 downto 0);
-    LED       : out std_logic_vector(7 downto 0)
-    );
+    LED       : out std_logic_vector(7 downto 0));
 end sw_mux;
 
 architecture A of sw_mux is
@@ -26,4 +25,5 @@ begin
               BTN_SOUTH when "10",
               BTN_WEST  when "11",
               '0'       when others;
+—- with select Anweisung wird mit Komma , abgetrennt
 end A;

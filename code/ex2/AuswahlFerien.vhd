@@ -36,6 +36,7 @@ holiday <= 	seaside when season = summer else
 			skiing 	when season = (winter | spring) else
 			none;
 end A2;
+—-wichtig!!! die when else Anweisung hat keine Abtrennung
 
 --Process mit einer if else if else end if Anweisung
 Architecture A3 of Ferien is

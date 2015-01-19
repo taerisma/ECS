@@ -22,8 +22,7 @@ entity reak_test is
     BTN_SOUTH   : in  std_logic; -- BTN_SOUTH für Reset
     clk   	: in  std_logic;
     ROT_C	: in  std_logic;
-    LED  	: out std_logic_vector(7 downto 0)
-    );
+    LED  	: out std_logic_vector(7 downto 0));
 end reak_test;
 
 architecture A_reak_test of reak_test is

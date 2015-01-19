@@ -14,8 +14,7 @@ entity raktions_tester is
     port ( rst 		: in  STD_LOGIC;
            clk 		: in  STD_LOGIC;
            rot_c 	: in  STD_LOGIC;
-           led 		: out  STD_LOGIC_VECTOR (7 downto 0)
-		);
+           led 		: out  STD_LOGIC_VECTOR (7 downto 0));--Am Ende eine ;
 end raktions_tester;
 
 architecture Behavioral of raktions_tester is
@@ -28,9 +27,9 @@ constant ZUFALLS_ZEIT 		: unsigned(18 downto 0) 	:= to_unsigned(CLK_FRQ/200-1,19
 signal delay_abgelaufen	: std_logic;
 signal messung_fertig	: std_logic;
 signal delay_zaehler	: unsigned(26 downto 0);
-signal zaehler			: unsigned(18 downto 0);
+signal zaehler		: unsigned(18 downto 0);
 signal gemessene_zeit	: unsigned(7 downto 0);
-signal led_out			: std_logic_vector(7 downto 0);
+signal led_out		: std_logic_vector(7 downto 0);
 
 begin
 --Ausgangs zuweisung

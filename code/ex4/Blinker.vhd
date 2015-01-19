@@ -12,8 +12,8 @@ entity Blinker is
   port(
     rst   : in  std_logic;
     clk   : in  std_logic;
-    blink : out std_logic_vector(7 downto 0)	--Ausgangsvektor mit 8 Stellen 
-    );											--!!!!!! achtung Semikolon
+    blink : out std_logic_vector(7 downto 0));	--Ausgangsvektor mit 8 Stellen 
+--!!!!!! Achtung Semikolon am Ende der Port Anweisung
 end Blinker;
 
 architecture A of Blinker is

@@ -8,22 +8,18 @@ use IEEE.NUMERIC_STD.all;
 
 entity reak_test_rand is
 	generic(CLK_FRQ : integer := 50_000_000);
-    Port ( rst : in  STD_LOGIC;
-           clk : in  STD_LOGIC;
-           rot_c : in  STD_LOGIC;
-           led : out  STD_LOGIC_VECTOR (7 downto 0)
-		);
+    	Port ( 	rst : in  STD_LOGIC;
+           	clk : in  STD_LOGIC;
+           	rot_c : in  STD_LOGIC;
+           	led : out  STD_LOGIC_VECTOR (7 downto 0));
 end reak_test_rand;
 
 architecture Behavioral of reak_test_rand is
-  -- 1 sec = 1 * CLK_FRQ -1
-  constant FIX_TME : unsigned(25 downto 0) := to_unsigned(CLK_FRQ-1,26); 
-  -- 1/100 sec = CLK_FRQ / 100 
-  constant CSC_TME : unsigned(18 downto 0) := to_unsigned(CLK_FRQ/100-1,19); 
-  -- 1/200 sec = CLK_FRQ / 200 =  CSC_TME/2
-  constant INT_TME : unsigned(18 downto 0) := to_unsigned(CLK_FRQ/200-1,19); 
-  -- 1/8 sec = CLK_FRQ / 8 
-  constant BLK_TME : unsigned(22 downto 0) := to_unsigned(CLK_FRQ/8-1,23); 
+ 
+  constant FIX_TME : unsigned(25 downto 0) := to_unsigned(CLK_FRQ-1,26);  	-- 1 sec = 1 * CLK_FRQ -1
+  constant CSC_TME : unsigned(18 downto 0) := to_unsigned(CLK_FRQ/100-1,19);  	-- 1/100 sec = CLK_FRQ / 100 
+  constant INT_TME : unsigned(18 downto 0) := to_unsigned(CLK_FRQ/200-1,19);   	-- 1/200 sec = CLK_FRQ / 200 =  CSC_TME/2
+  constant BLK_TME : unsigned(22 downto 0) := to_unsigned(CLK_FRQ/8-1,23);   	-- 1/8 sec = CLK_FRQ / 8 
   
   -- signals
   signal del_done  : std_logic;              -- state type control signal 

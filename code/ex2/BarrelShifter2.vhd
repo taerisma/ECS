@@ -6,9 +6,8 @@ use IEEE.NUMERIC_STD.ALL;
 entity BarrelShifter2 is
     port ( 
 			dataIn 	: in  STD_LOGIC_VECTOR 	(7 downto 0);
-			dataOut 	: out  STD_LOGIC_VECTOR (7 downto 0);
-			shift 	: in  STD_LOGIC_VECTOR 	(3 downto 0)
-			  );
+			dataOut : out  STD_LOGIC_VECTOR (7 downto 0);
+			shift 	: in  STD_LOGIC_VECTOR 	(3 downto 0));—- am Schluss kein ;
 end BarrelShifter2;
 
 architecture Behavioral of BarrelShifter2 is
