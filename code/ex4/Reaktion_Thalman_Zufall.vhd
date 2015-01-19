@@ -28,7 +28,7 @@ end reak_test;
 architecture A_reak_test of reak_test is
 
   constant WAIT_PRD : integer := 2;		-- wait period in seconds
-  constant MAX_CNT : unsigned(26 downto 0):= to_unsigned(CLK_FRQ*WAIT_PRD-1,27);	-- to_unsigned(,27 bit)
+  constant MAX_CNT : unsigned(26 downto 0):= to_unsigned(CLK_FRQ*WAIT_PRD-1,27) -- to_unsigned(xxx,27 bit)
 
   -- signals
   signal rst		: std_logic;	--reset

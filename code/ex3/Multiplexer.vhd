@@ -15,7 +15,7 @@ entity Multiplexer is
            ROT_B 	: in  STD_LOGIC;
            ROT_CENTER 	: in  STD_LOGIC;
 	   SW 		: in  STD_LOGIC_VECTOR (2 downto 0);
-           LED 		: out  STD_LOGIC_VECTOR (7 downto 0));—- ; am Schluss
+           LED 		: out  STD_LOGIC_VECTOR (7 downto 0));--Semikolon am Schluss
 end Multiplexer;
 
 architecture Behavioral of Multiplexer is
@@ -37,4 +37,3 @@ begin
 end Behavioral;
 --keine Abtrennung zwischen den else
 --wichtig ein Null zum Abfangen
---*************************************************

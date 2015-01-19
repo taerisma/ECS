@@ -12,8 +12,8 @@ entity Blinker is
   port(
     rst   : in  std_logic;
     clk   : in  std_logic;
-    blink : out std_logic_vector(7 downto 0));	--Ausgangsvektor mit 8 Stellen 
---!!!!!! Achtung Semikolon am Ende der Port Anweisung
+    blink : out std_logic_vector(7 downto 0));--Ausgangsvektor mit 8 Stellen 
+----!!!!!! Achtung Semikolon am Ende der Port Anweisung
 end Blinker;
 
 architecture A of Blinker is
@@ -29,7 +29,7 @@ begin
   blink <= blk;
   
   -- sequential process
-  -- ergiebt 8 +26 = 34 FF
+  -- ergiebt blk 8FF + cnt 26FF = 34 FF
   P1_seq: process(rst, clk)
   begin
     if rst = '1' then
@@ -44,5 +44,4 @@ begin
       end if;
     end if;
   end process;
-  
 end A;

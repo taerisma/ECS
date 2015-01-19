@@ -16,10 +16,10 @@ end reak_test_rand;
 
 architecture Behavioral of reak_test_rand is
  
-  constant FIX_TME : unsigned(25 downto 0) := to_unsigned(CLK_FRQ-1,26);  	-- 1 sec = 1 * CLK_FRQ -1
-  constant CSC_TME : unsigned(18 downto 0) := to_unsigned(CLK_FRQ/100-1,19);  	-- 1/100 sec = CLK_FRQ / 100 
-  constant INT_TME : unsigned(18 downto 0) := to_unsigned(CLK_FRQ/200-1,19);   	-- 1/200 sec = CLK_FRQ / 200 =  CSC_TME/2
-  constant BLK_TME : unsigned(22 downto 0) := to_unsigned(CLK_FRQ/8-1,23);   	-- 1/8 sec = CLK_FRQ / 8 
+  constant FIX_TME : unsigned(25 downto 0) := to_unsigned(CLK_FRQ-1,26);  	--1 sec = 1 * CLK_FRQ -1
+  constant CSC_TME : unsigned(18 downto 0) := to_unsigned(CLK_FRQ/100-1,19);  	--1/100 sec = CLK_FRQ / 100 
+  constant INT_TME : unsigned(18 downto 0) := to_unsigned(CLK_FRQ/200-1,19);   	--1/200 sec = CLK_FRQ / 200 =  CSC_TME/2
+  constant BLK_TME : unsigned(22 downto 0) := to_unsigned(CLK_FRQ/8-1,23);   	--1/8 sec = CLK_FRQ / 8 
   
   -- signals
   signal del_done  : std_logic;              -- state type control signal 
@@ -34,10 +34,10 @@ architecture Behavioral of reak_test_rand is
   -- NOTE:
   -- The following signal initilization is only relevant for simulation. It is
   -- required for simulation since no reset is used for the random counter.
+
   signal rnd_cnt   : unsigned(25 downto 0) := to_unsigned(CLK_FRQ/7-333,26);
 
 begin
-  -- output assignment
   LED <= led_out;
     -----------------------------------------------------------------------------
   -- sequential process: Delay Counter

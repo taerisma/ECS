@@ -7,7 +7,7 @@ entity BarrelShifter is
     port ( 
 			dataIn 	: in  STD_LOGIC_VECTOR 	(7 downto 0);
 			dataOut : out  STD_LOGIC_VECTOR (7 downto 0);
-			shift 	: in  STD_LOGIC_VECTOR 	(3 downto 0));—-letzte Anweisung ohne ;
+			shift 	: in  STD_LOGIC_VECTOR 	(3 downto 0));-- letzte Anweisung ohne Semikolon
 end BarrelShifter;
 
 -- process statement with sequential signal ass. and for

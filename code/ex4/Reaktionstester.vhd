@@ -14,7 +14,7 @@ entity raktions_tester is
     port ( rst 		: in  STD_LOGIC;
            clk 		: in  STD_LOGIC;
            rot_c 	: in  STD_LOGIC;
-           led 		: out  STD_LOGIC_VECTOR (7 downto 0));--Am Ende eine ;
+           led 		: out  STD_LOGIC_VECTOR (7 downto 0));--Am Ende eine Semikolon
 end raktions_tester;
 
 architecture Behavioral of raktions_tester is

@@ -25,5 +25,6 @@ begin
               BTN_SOUTH when "10",
               BTN_WEST  when "11",
               '0'       when others;
-—- with select Anweisung wird mit Komma , abgetrennt
 end A;
+
+---- with select Anweisung wird mit Komma , abgetrennt

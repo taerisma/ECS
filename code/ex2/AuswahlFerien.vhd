@@ -25,18 +25,18 @@ begin
 
 --eine select Anweisung
 with season select
-holiday <= 	seaside when summer,
+holiday <= 		seaside when summer,
 			skiing 	when winter | spring,
 			none	when others;
 end A1;
 
 Architecture A2 of Ferien is
 begin
-holiday <= 	seaside when season = summer else
+holiday <= 		seaside when season = summer else
 			skiing 	when season = (winter | spring) else
 			none;
 end A2;
-—-wichtig!!! die when else Anweisung hat keine Abtrennung
+--wichtig!!! die when else Anweisung hat keine Abtrennung
 
 --Process mit einer if else if else end if Anweisung
 Architecture A3 of Ferien is
@@ -45,7 +45,7 @@ begin
 	begin
 		if 		season = summer then
 					holiday <= seaside;
-		else if	season = winter | spring then
+		else if		season = winter | spring then
 					holiday <= skiing;
 		else 
 					holiday <= none;
@@ -60,7 +60,7 @@ begin
 	begin
 		case season is
 			when summer 			=> holiday <= seaside;
-			when (winter | spring) 	=> holiday <= skiing;
+			when (winter | spring) 		=> holiday <= skiing;
 			when others 			=> holiday <= none;
 		end case;
 	end process;
