@@ -1,4 +1,3 @@
-
 -------------------------------------------------------------------------------
 -- Entity: reak_test_rand_fsm
 -- Author: ThM
@@ -21,21 +20,20 @@ entity reak_test is
     CLK_FRQ : integer := 50_000_000 -- 50 MHz = 0x2FAF080 (26 bits)
     );
   port(
-    BTN_SOUTH   : in  std_logic; -- BTN_SOUTH für Reset
-    clk   	: in  std_logic;
-    ROT_C	: in  std_logic;
-    LED  	: out std_logic_vector(7 downto 0)
-    );
+    BTN_SOUTH   : in  std_logic; --  Reset
+    clk   		: in  std_logic;
+    ROT_C		: in  std_logic;
+    LED  		: out std_logic_vector(7 downto 0));
 end reak_test;
 
 architecture A_reak_test of reak_test is
 
   -- constants
   constant WAIT_PRD : integer := 2;		-- wait period in seconds
-  constant MAX_CNT : unsigned(26 downto 0):= to_unsigned(CLK_FRQ*WAIT_PRD-1,27);	-- to_unsigned(,27 bit)
+  constant MAX_CNT 	: unsigned(26 downto 0):= to_unsigned(CLK_FRQ*WAIT_PRD-1,27);	-- to_unsigned(,27 bit)
  -- signals
-  signal rst_gen	: std_logic_vector(1 downto 0);
-  signal rst		: std_logic;	--reset
+  signal rst_gen		: std_logic_vector(1 downto 0);
+  signal rst			: std_logic;	--reset
   signal btn_s_meta	: std_logic_vector(2 downto 0);
   signal rot_c_meta	: std_logic_vector(1 downto 0);
   signal LED_I	  	: std_logic_vector(7 downto 0);
@@ -159,11 +157,8 @@ end process;
            del_done <= '1';
           end if; --cnt
         end if; --cnt_stop
-      end if; --btn_s_meta(2)='1'
-	  
+      end if; --btn_s_meta(2)='1'  
     end if; --clk
   end process;
-   
   LED <= LED_I;
 end A_reak_test;
---*******************************************************
