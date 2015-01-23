@@ -41,8 +41,8 @@ Architecture A2 of Ferien is
 
 begin
 stud <= happyhappy	when mep =	A else
-		happy 		when mep >= C else
-		satisfied 	when mep >= E else
+		happy 		when mep <= C else
+		satisfied 	when mep <= E else
 		sad;
 end A2;
 
