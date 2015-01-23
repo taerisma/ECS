@@ -20,19 +20,25 @@ end MEP;
 
 --eine select Anweisung
 Architecture A1 of MEP is
-type grade_type is (A, B, C, D, E, F);
-signal mep : grade_type;
+    type grade_type is (A, B, C, D, E, F);
+    signal mep : grade_type;
+    type happy_type is (happyhappy, happy, satisfied, sad);
+    signal stud;
+
 begin
 	with mep select
-	stud <= happyhappy 	when mep =	A,
-			happy 		when mep >= C,
-			satisfied 	when mep >= E,
+	stud <= happyhappy 	when A,
+			happy 		when B,
+			happy 		when C,
+			satisfied 	when D | E,
 			sad			when others;
 end A1;
 
 Architecture A2 of Ferien is
-type grade_type is (A, B, C, D, E, F);
-signal mep : grade_type;
+    type grade_type is (A, B, C, D, E, F);
+    signal mep : grade_type;
+    type happy_type is (happyhappy, happy, satisfied, sad);
+    signal stud;
 
 begin
 stud <= happyhappy	when mep =	A else
@@ -43,9 +49,12 @@ end A2;
 
 --Process mit einer if else if else end if Anweisung
 Architecture A3 of Ferien is
+    type grade_type is (A, B, C, D, E, F);
+    signal mep : grade_type;
+    type happy_type is (happyhappy, happy, satisfied, sad);
+    signal stud;
+
 begin 
-type grade_type is (A, B, C, D, E, F);
-signal mep : grade_type;
 	process(mep)
 	begin
 		if 		mep = A then
@@ -62,9 +71,12 @@ end A3;
 
 --Process mit Case Anweisung
 Architecture A4 of Ferien is
+    type grade_type is (A, B, C, D, E, F);
+    signal mep : grade_type;
+    type happy_type is (happyhappy, happy, satisfied, sad);
+    signal stud;
+
 begin 
-type grade_type is (A, B, C, D, E, F);
-signal mep : grade_type;
 	process(mep)
 	begin
 		case mep is
