@@ -17,9 +17,10 @@ entity Ferien is
 end Ferien;
 
 Architecture A1 of Ferien is
-type season_type is (summer, winter, spring);
-signal season : season_type;
-
+    type season_type is (summer, winter, spring);
+    signal season : season_type;
+    type holiday_type is (seaside, skiing, none);
+    signal holiday : holiday_type;
 
 begin
 
@@ -31,6 +32,11 @@ holiday <= 		seaside when summer,
 end A1;
 
 Architecture A2 of Ferien is
+    type season_type is (summer, winter, spring);
+    signal season : season_type;
+    type holiday_type is (seaside, skiing, none);
+    signal holiday : holiday_type;
+
 begin
 holiday <= 		seaside when season = summer else
 			skiing 	when season = (winter | spring) else
@@ -40,12 +46,17 @@ end A2;
 
 --Process mit einer if else if else end if Anweisung
 Architecture A3 of Ferien is
+    type season_type is (summer, winter, spring);
+    signal season : season_type;
+    type holiday_type is (seaside, skiing, none);
+    signal holiday : holiday_type;
+
 begin
 	process(season)
 	begin
 		if 		season = summer then
 					holiday <= seaside;
-		else if		season = winter | spring then
+		elsif		season = winter | spring then
 					holiday <= skiing;
 		else 
 					holiday <= none;
@@ -55,12 +66,17 @@ end A3;
 
 --Process mit einer Auswahl mit einer case Anweisung
 Architecture A4 of Ferien is
+    type season_type is (summer, winter, spring);
+    signal season : season_type;
+    type holiday_type is (seaside, skiing, none);
+    signal holiday : holiday_type;
+
 begin
 	process(season)
 	begin
 		case season is
 			when summer 			=> holiday <= seaside;
-			when (winter | spring) 		=> holiday <= skiing;
+			when (winter | spring) 	=> holiday <= skiing;
 			when others 			=> holiday <= none;
 		end case;
 	end process;
