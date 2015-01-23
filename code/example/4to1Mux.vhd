@@ -24,7 +24,7 @@ variable temp : std_logic;      // variable declaration
 begin
 	if(S="00")		then
 		temp:=A;
-	elsif(S="01")	then           // note that it is 'elsif' not 'else if' of C
+	elsif(S="01")	then           // note that it is 'elsif' not 'elsif' of C
 		temp:=B;
 	elsif(S="10")	then
 		temp:=C;

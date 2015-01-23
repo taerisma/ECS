@@ -11,7 +11,6 @@ entity MEP is
 	);
 end MEP;
 
-
 --von welchem type ist stud?
 --von welchem type ist mep?
 --von welchem type sind die Noten
@@ -47,7 +46,7 @@ stud <= happyhappy	when mep =	A else
 		sad;
 end A2;
 
---Process mit einer if else if else end if Anweisung
+--Process mit einer if elsif else end if Anweisung
 Architecture A3 of Ferien is
     type grade_type is (A, B, C, D, E, F);
     signal mep : grade_type;
@@ -59,9 +58,9 @@ begin
 	begin
 		if 		mep = A then
 					stud <= happyhappy;
-		else if	mep >= C then
+		elsif	mep >= C then
 					stud <= happy;
-		else if	mep >= E then
+		elsif	mep >= E then
 					stud <= satisfied;
 		else 
 					stud <= sad;

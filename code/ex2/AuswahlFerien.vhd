@@ -44,7 +44,7 @@ holiday <= 		seaside when season = summer else
 end A2;
 --wichtig!!! die when else Anweisung hat keine Abtrennung
 
---Process mit einer if else if else end if Anweisung
+--Process mit einer if elsif else end if Anweisung
 Architecture A3 of Ferien is
     type season_type is (summer, winter, spring);
     signal season : season_type;
