@@ -21,3 +21,14 @@ Schalter und Taster können auf zwei Arten entprellt werden.\\
 \subsubsection{Multiplexer Code Using if else statements}
 Der 4 to 1 Multiplexer wird auf vier verschiedene Prozessarten gelöst.
 \lstinputlisting[ title=Mux]{code/example/4to1Mux.vhd}
+
+\subsection{FSM}
+
+\subsubsection{Schloss mit Schieberegister ohne FSM}
+\lstinputlisting[ title=Schloss ohne FSM]{code/example/schloss_shift.vhd}
+
+\subsubsection{Schloss mit FSM}
+\lstinputlisting[ title=Schloss mit FSM]{code/example/schloss_fsm.vhd}
+
+\subsubsection{Schloss mit FSM, Metastabilitätsfilter und Entprellung}
+\lstinputlisting[ title=Schloss mit FSM\, Metastabilitätsfilter und Entprellung]{code/example/schloss_fsm_debounce.vhd}
