@@ -1,6 +1,6 @@
 -- Bei einer geraden Anzahl von 1 in dem vier Bit data Vektor
--- wird das Parrity Bit 0
--- bei einer ungeraden Anzahl ist das Parrity Bit 1
+-- wird das Parity Bit 0
+-- bei einer ungeraden Anzahl ist das Parity Bit 1
 --data="0000" dann wird parity 0
 --data="0001" dann wird parity 1
 --data="0010" dann wird parity 1
@@ -39,9 +39,9 @@ end A1;
 --der Zählervariable onesCount zählt die 1er im Data Vektor
 --onesCount wird durch modulo 2 geteilt
 --eine gerade Zahl geteilduch modulo 2 gibt 0
---in diesem Fall wird das Parrity Bit = 0
+--in diesem Fall wird das Parity Bit = 0
 --ungerade Zahl würde mit mod 2 nicht 0 ergeben
---somit wird für ungerade Anzahl 1er ein 1 in das parrity geschriben
+--somit wird für ungerade Anzahl 1er ein 1 in das parity geschriben
 -----------------------------------------------------------------
 
 architecture A2 of evenParityGenerator is
@@ -61,5 +61,5 @@ end A2;
 --datenwort ="0000" parity ist 0
 --sobald keine 1 im Datenwort vorkommt ist das Parity Bit = 1
 --ist die Anzahl der 1 im Datenwort gerade also durch 2 ohne Rest teilbar so wird das ParityBit = 0
---be jedem 1 im Datenwort kippt das Parrity Bit
+--be jedem 1 im Datenwort kippt das Parity Bit
 --Am Schluss wird die Variable v_even_parity auf das parity Signal geschrieben

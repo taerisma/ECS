@@ -1,6 +1,6 @@
 -- Bei einer geraden Anzahl von 1 in dem vier Bit data Vektor
--- wird das Parrity Bit 1
--- bei einer ungeraden Anzahl ist das Parrity Bit 0
+-- wird das Parity Bit 1
+-- bei einer ungeraden Anzahl ist das Parity Bit 0
 --data="0000" parity = 1
 --data="0001" parity = 0
 --data="0010" parity = 0
@@ -40,9 +40,9 @@ end A1;
 --der Zählervariable onesCount zählt die 1er im Data Vektor
 --onesCount wird durch modulo 2 geteilt
 --eine gerade Zahl geteilduch modulo 2 gibt 0
---in diesem Fall wird das Parrity Bit = 1
+--in diesem Fall wird das Parity Bit = 1
 --ungerade Zahl würde mit mod 2 nicht 0 ergeben
---somit wird für ungerade Anzahl 1er ein 0 in das parrity geschriben
+--somit wird für ungerade Anzahl 1er ein 0 in das parity geschriben
 -----------------------------------------------------------------
 
 architecture A2 of ParityGenerator is
@@ -60,5 +60,5 @@ begin
 	end process;
 end A2;
 --solange keine 1 im Datenwort vorkommt ist das Parity Bit = 1
---be jedem 1 im Datenwort kippt das Parrity Bit
+--be jedem 1 im Datenwort kippt das Parity Bit
 --Am Schluss wird die Variable v_odd_parity auf das parity Signal geschrieben
