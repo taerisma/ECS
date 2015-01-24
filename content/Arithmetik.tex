@@ -1,6 +1,7 @@
 \section{Arithmetik}
 \subsection{addieren und subtrahieren}
-Adieren und Subtrahieren benötigt keine Fallunterscheidung, solange sich die negative Zahl im Zeierkomplement befindet.\\
+Adieren und Subtrahieren benötigt keine Fallunterscheidung, solange sich die 
+negative Zahl im Zweierkomplement befindet.\\
 Es gilt:\\
 \begin{table}[h]
 \begin{tabular}{ll|l}
@@ -13,22 +14,28 @@ MSB & LSB & Resalt \\ \hline
 \end{tabular}
 \end{table}
 
-Man muss sich bewusst sein, das Resultat von einer Adition liegt im normalen Binärsystem vor. Das Resultat bei einer addition von negativen Zahlen die im Zweierkomplement verrechnet wurde, liegt auch das Resultat im Zweierkommplement vor.
+\noindent Man muss sich bewusst sein, das Resultat von einer Adition liegt im 
+normalen Binärsystem vor. Das Resultat bei einer Addition von negativen Zahlen 
+die im Zweierkomplement verrechnet wurden, liegt auch das Resultat im 
+Zweierkomplement vor.
 
 \subsection{Zweierkomplement}
-Sobald eine Vorzeichenbelastete Binäre Zahlenvektor zu verarbeiten ist, muss das MSB betrachtet werden.\\
-Ist das MSB eine 0 ist der Zahlenvektor postiv. Hat der Zahlenvektor eine 1 als MSB so handelt ich es um einen neagtiven Wert.
+Sobald eine vorzeichenbelastete binäre Zahlenvektor zu verarbeiten ist, muss 
+das MSB betrachtet werden.\\
+Ist das MSB eine 0 ist der Zahlenvektor postiv. Hat der Zahlenvektor eine 1 
+als MSB so handelt ich es um einen neagtiven Wert.
 \\
 Negative binär Werte mussen ins Zweierkomplement gewandelt werden.\\
 Vorgenhen:\\
 Alle Bits invertieren und beim LSB eine 1 dazu addieren.
 \\
-Um aus dem Zweierkomplement wider auf einen normalen binären Bitvektor zu gelangen wird das Selbe gemacht\\
+Um aus dem Zweierkomplement wieder auf einen normalen binären Bitvektor zu 
+gelangen wird das Selbe gemacht\\
 Alle Bits invertieren und beim LSB eine 1 dazu addieren.
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=6cm]{content/bilder/Zahlenkreis.png}
-	\caption{Vier Bit signed Zahlenkreis Dezimal und Zweierkomplement angebe}%
+	\caption{Vier Bit signed Zahlenkreis Dezimal und Zweierkomplement angabe}%
 	\label{Zahlenkreis}
 \end{figure}
 
