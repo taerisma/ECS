@@ -39,4 +39,30 @@ Alle Bits invertieren und beim LSB eine 1 dazu addieren.
 	\label{Zahlenkreis}
 \end{figure}
 
+\subsection{Umwandlung signed / unsigned}
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+        \node (V) at ( 5, 2) [rounded corners, draw, text width=3.5cm, align=center, fill=blue!30 ] {V\\std\_logic\_vector\\IEEE.std\_logic\_1164};
+        \node (U) at (-2, 5) [rounded corners, draw, text width=3.5cm, align=center, fill=blue!30 ] {U\\unsigned\\IEEE.numeric\_std};
+        \node (I) at (-5,-2) [rounded corners, draw, text width=3.5cm, align=center, fill=green!30] {I\\integer\\std.standard};
+        \node (S) at ( 2,-5) [rounded corners, draw, text width=3.5cm, align=center, fill=blue!30 ] {S\\signed\\IEEE.numeric\_std};
 
+        % V -> U
+        \draw[->, ultra thick] (V) to[bend right=30] node[fill=orange!20, fill opacity=0.9] {unsigned(V)} (U);
+        % U -> V
+        \draw[->, ultra thick] (U) to[bend right=30] node[fill=orange!20, fill opacity=0.9] {std\_logic\_vector(U)} (V);
+        % I -> U
+        \draw[->, ultra thick] (I) to[bend right=30] node[fill=orange!20, fill opacity=0.9] {to\_unsigned(I,U'length)} (U);
+        % U -> I
+        \draw[->, ultra thick] (U) to[bend right=30] node[fill=orange!20, fill opacity=0.9] {to\_integer(U)} (I);
+        % I -> S
+        \draw[->, ultra thick] (I) to[bend right=30] node[fill=orange!20, fill opacity=0.9] {to\_signed(I,S'length)} (S);
+        % S -> I
+        \draw[->, ultra thick] (S) to[bend right=30] node[fill=orange!20, fill opacity=0.9] {to\_integer(S)} (I);
+        % V -> S
+        \draw[->, ultra thick] (V) to[bend right=30] node[fill=orange!20, fill opacity=0.9] {signed(V)} (S);
+        % S -> V
+        \draw[->, ultra thick] (S) to[bend right=30] node[fill=orange!20, fill opacity=0.9] {std\_logic\_vector(S)} (V);
+    \end{tikzpicture}
+\end{figure}
