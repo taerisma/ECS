@@ -4,8 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 
 entity BarrelShifter is
-    port ( 
-			dataIn 	: in  STD_LOGIC_VECTOR 	(7 downto 0);
+    port ( 	dataIn 	: in  STD_LOGIC_VECTOR 	(7 downto 0);
 			dataOut : out  STD_LOGIC_VECTOR (7 downto 0);
 			shift 	: in  STD_LOGIC_VECTOR 	(3 downto 0));-- letzte Anweisung ohne Semikolon
 end BarrelShifter;

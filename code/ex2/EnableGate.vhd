@@ -5,8 +5,7 @@ use ieee.numeric_std.all;
 entity EnableGate is
     Port (	x 	: in  STD_LOGIC_VECTOR (3 downto 0);
 			en 	: in  STD_LOGIC;
-			y 	: out  STD_LOGIC_VECTOR (3 downto 0)
-		);--die letzte Anweisung der port brauch kein; erst nach der ( kommt ;
+			y 	: out  STD_LOGIC_VECTOR (3 downto 0));--Klammer
 end EnableGate;
 
 -- concurrent signal assignment

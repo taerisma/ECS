@@ -9,9 +9,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.all;
 
 entity Decoder_SW_to_LED is
-    Port ( 
-		SW : in  STD_LOGIC_VECTOR (1 downto 0);
-		LED : out  STD_LOGIC_VECTOR (7 downto 0));
+    Port ( 	SW : in  STD_LOGIC_VECTOR (1 downto 0);
+			LED : out  STD_LOGIC_VECTOR (7 downto 0));
 end Decoder_SW_to_LED;
 
 architecture Behavioral of Decoder_SW_to_LED is

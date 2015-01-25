@@ -18,48 +18,51 @@ end Ferien;
 
 Architecture A1 of Ferien is
     type season_type is (summer, winter, spring);
-    signal season : season_type;
+    signal season 	: season_type;
+
     type holiday_type is (seaside, skiing, none);
-    signal holiday : holiday_type;
+    signal holiday 	: holiday_type;
 
 begin
 
 --eine select Anweisung
 with season select
-holiday <= 		seaside when summer,
-			skiing 	when winter | spring,
-			none	when others;
+holiday <= 	seaside when summer,
+		skiing 	when winter | spring,
+		none	when others;
 end A1;
 
 Architecture A2 of Ferien is
     type season_type is (summer, winter, spring);
-    signal season : season_type;
+    signal season 	: season_type;
+
     type holiday_type is (seaside, skiing, none);
-    signal holiday : holiday_type;
+    signal holiday 	: holiday_type;
 
 begin
-holiday <= 		seaside when season = summer else
-			skiing 	when season = (winter | spring) else
-			none;
+holiday <= 	seaside when season = summer else
+		skiing 	when season = (winter | spring) else
+		none;
 end A2;
 --wichtig!!! die when else Anweisung hat keine Abtrennung
 
 --Process mit einer if elsif else end if Anweisung
 Architecture A3 of Ferien is
     type season_type is (summer, winter, spring);
-    signal season : season_type;
+    signal season 	: season_type;
+
     type holiday_type is (seaside, skiing, none);
-    signal holiday : holiday_type;
+    signal holiday 	: holiday_type;
 
 begin
 	process(season)
 	begin
 		if 		season = summer then
-					holiday <= seaside;
-		elsif		season = winter | spring then
-					holiday <= skiing;
+				holiday <= seaside;
+		elsif	season = winter | spring then
+				holiday <= skiing;
 		else 
-					holiday <= none;
+				holiday <= none;
 		end if;
 	end process;
 end A3;
@@ -67,9 +70,10 @@ end A3;
 --Process mit einer Auswahl mit einer case Anweisung
 Architecture A4 of Ferien is
     type season_type is (summer, winter, spring);
-    signal season : season_type;
+    signal season 	: season_type;
+
     type holiday_type is (seaside, skiing, none);
-    signal holiday : holiday_type;
+    signal holiday 	: holiday_type;
 
 begin
 	process(season)
