@@ -5,7 +5,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity SubX is
 	port(
-		alpha : in std_logic;
+		alpha 	: in std_logic;
 		beta	: out std_logic);
 end SubX;
 

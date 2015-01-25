@@ -10,11 +10,10 @@ generic(
 	);
 port(
 		clk 	:in std_logic;
-		we 	:in std_logic;
+		we 		:in std_logic;
 		addr 	:in std_logic_vector(AW-1 downto 0);
 		Din 	:in std_logic_vector(DW-1 downto 0);
-		Dout 	:out std_logic_vector(DW-1 downto 0)
-);
+		Dout 	:out std_logic_vector(DW-1 downto 0));
 end entity RAM_RbW;
 architecture A1 of RAM_RbW is
 type t_ram is array(0 to (2**AW)-1) of std_logic_vector(DW-1 downto 0);

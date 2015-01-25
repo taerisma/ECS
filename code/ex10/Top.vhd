@@ -7,16 +7,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Top is
 	port(
 		A : in std_logic;
-		B : out std_logic
-		);
+		B : out std_logic);
 end Top;
 architecture Behavioral of Top is
 
 	component SubX is 
 	port(
 		alpha : in std_logic;
-		beta	: out std_logic
-		);
+		beta	: out std_logic);
 	end component SubX;
 	
 	component SubY is 

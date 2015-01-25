@@ -10,8 +10,7 @@ entity Rom is
 			);
 	port(
 			addr :in std_logic_vector(AW-1 downto 0);
-			Dout :out std_logic_vector(DW-1 downto 0)
-			);
+			Dout :out std_logic_vector(DW-1 downto 0));
 end Rom;
 
 architecture A1 of Rom is

@@ -8,8 +8,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity SubY is
 	port(
 		v : in std_logic;
-		w : out std_logic
-		);
+		w : out std_logic);
 end SubY;
 
 architecture Behavioral of SubY is

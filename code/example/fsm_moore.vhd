@@ -1,8 +1,5 @@
 -- Moore FSM
--- muss in einer Architecture Verwendet werden
--- 3 Zustände
--- 2 FF also 1 parasitärer Zustand
-
+-- 3 Zustände also 2 FF also 1 parasitärer Zustand
 
 type state is (S0, S1, S2);
 signal c_st, n_st : state;
@@ -19,8 +16,7 @@ begin
   end if;
 end process;
 
--- memoryless process
--- kombinatorischer Prozess
+-- kombinatorischer Prozess keine FF
 p_com: process (i, c_st)
 begin
   -- default assignments
