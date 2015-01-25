@@ -12,8 +12,7 @@ entity reak_test_random_fsm_mealy is
     Port ( rot_c 	: in  STD_LOGIC;
            rst 		: in  STD_LOGIC;
            clk 		: in  STD_LOGIC;
-           led 		: out  STD_LOGIC_VECTOR (7 downto 0)
-		 );
+           led 		: out  STD_LOGIC_VECTOR (7 downto 0));
 end reak_test_random_fsm_mealy;
 
 architecture Behavioral of reak_test_random_fsm_mealy is

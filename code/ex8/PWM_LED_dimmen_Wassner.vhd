@@ -13,8 +13,7 @@ entity pwm_led is
     clk   : in  std_logic;
     ROT_A : in  std_logic;
     ROT_B : in  std_logic;
-    LED   : out std_logic_vector(7 downto 0)
-    );
+    LED   : out std_logic_vector(7 downto 0));
 end pwm_led;
 
 architecture A of pwm_led is

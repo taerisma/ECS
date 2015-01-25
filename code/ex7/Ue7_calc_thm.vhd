@@ -24,8 +24,7 @@ entity calc is
     clk   		: in  std_logic;
     ROT_C		: in  std_logic; -- read number 1 or 2
 	SW			: in std_logic_vector(3	downto 0); -- input number 1 or 2
-    LED  		: out std_logic_vector(7 downto 0)--kein Semikolon
-    );
+    LED  		: out std_logic_vector(7 downto 0));--kein Semikolon
 end calc;
 
 architecture A_calc of calc is

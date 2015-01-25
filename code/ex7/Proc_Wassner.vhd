@@ -22,8 +22,7 @@ entity Proc is
     plus  : in std_logic;
     minus : in std_logic;
     mult  : in std_logic;        
-    LED   : out std_logic_vector(7 downto 0)
-    );
+    LED   : out std_logic_vector(7 downto 0));
 end Proc;
 
 architecture rtl of Proc is

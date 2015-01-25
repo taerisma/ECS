@@ -26,8 +26,7 @@ entity led_rotate is
     ROT_B    : in  std_logic;
     BTN_EAST : in  std_logic;
     BTN_WEST : in  std_logic;
-    LED      : out std_logic_vector(7 downto 0)
-    );
+    LED      : out std_logic_vector(7 downto 0));
 end led_rotate;
 
 architecture rtl of led_rotate is

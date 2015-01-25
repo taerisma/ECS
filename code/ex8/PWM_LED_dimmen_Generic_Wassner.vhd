@@ -15,10 +15,9 @@ entity pwm_led is
   port(
     rst   : in  std_logic;
     clk   : in  std_logic;
-	 ROT_A : in  std_logic;
+	ROT_A : in  std_logic;
     ROT_B : in  std_logic;
-    LED   : out std_logic_vector(7 downto 0)
-    );
+    LED   : out std_logic_vector(7 downto 0));
 end pwm_led;
 
 architecture A of pwm_led is
@@ -117,7 +116,7 @@ begin
 		   dig_in <= dig_in + STP;
 	   end if;
 	   -- PWM-DAC
-      ref_cnt <= ref_cnt + 1;                  -- counts modulo 2^RES
+      	ref_cnt <= ref_cnt + 1;                  -- counts modulo 2^RES
 		led <= (led'left => '1', others => '0'); -- MSB: 100% brightness
 		if ref_cnt < dig_in then  
 			led <= (others => '1');

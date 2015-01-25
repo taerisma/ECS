@@ -27,8 +27,7 @@ entity Ctrl is
     op2      : out std_logic;
     plus     : out std_logic;
     minus    : out std_logic;
-    mult     : out std_logic
-    );
+    mult     : out std_logic);
 end Ctrl;
 
 architecture rtl of Ctrl is

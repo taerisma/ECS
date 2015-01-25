@@ -23,8 +23,7 @@ entity dimm is
     clk   	: in  std_logic;
     ROT_A	: in  std_logic;
     ROT_B	: in  std_logic;
-    LED  	: out std_logic_vector(7 downto 0)
-    );
+    LED  	: out std_logic_vector(7 downto 0));
 end dimm;
 
 architecture A_dimm of dimm is

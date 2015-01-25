@@ -25,8 +25,7 @@ entity reak_test_rand_fsm is
     rst   : in  std_logic; -- BTN_SOUTH
     clk   : in  std_logic;
     ROT_C : in  std_logic; -- not synchronized!!!!
-    LED   : out std_logic_vector(7 downto 0)
-    );
+    LED   : out std_logic_vector(7 downto 0));
 end reak_test_rand_fsm;
 
 architecture rtl of reak_test_rand_fsm is
