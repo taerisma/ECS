@@ -68,8 +68,8 @@ Architecture behavioral of mux4to1 is
 begin
 with S select
 O<= A when "00",
-        B when "01",
-        C when "10",
-        D when others;
+    B when "01",
+    C when "10",
+    D when others;
 end behavioral;
 ----------------------------------------------------------------------------------
